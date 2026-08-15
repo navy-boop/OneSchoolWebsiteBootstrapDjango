@@ -1,0 +1,180 @@
+/* =========================
+   全局
+========================= */
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #222;
+}
+.dark-blue {
+    background-color: #06458f;
+}
+img {
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+}
+/* =========================
+   学校主题颜色
+========================= */
+:root {
+    --school-blue: #06458f;
+    --school-dark-blue: #03468f;
+    --school-hover-blue: #08366e;
+    --school-yellow: #ffc400;
+}
+/* =========================
+   01 Topbar
+========================= */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+/* =========================
+   02 Header
+========================= */
+/* 学校名称 */
+header h1 {
+    color: var(--school-blue);
+    letter-spacing: 8px;
+}
+/* 英文名称 */
+header p {
+    letter-spacing: 5px;
+}
+/* =========================
+   03 Navbar
+========================= */
+.navbar.bg-primary {
+    background-color: var(--school-dark-blue) !important;
+}
+.navbar .nav-link {
+    color: white;
+    padding: 15px 12px;
+    font-size: 16px;
+}
+/* 导航鼠标悬停 */
+.navbar .nav-link:hover {
+    background-color: var(--school-hover-blue);
+    color: white;
+}
+/* 当前导航 */
+.navbar .nav-link.active {
+    background-color: var(--school-hover-blue);
+    border-bottom: 3px solid var(--school-yellow);
+    color: white;
+}
+/* =========================
+   04 Hero Banner
+========================= */
+/* Banner 图片 */
+section.position-relative > img {
+    object-fit: cover;
+}
+/* Banner 标题 */
+.hero-title {
+    color: var(--school-blue);
+}
+/* =========================
+   05 Quick Links
+========================= */
+/* 快捷功能卡片 */
+section.py-4 .bg-white {
+    transition: all 0.3s ease;
+}
+/* 鼠标悬停 */
+section.py-4 .bg-white:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+/* =========================
+   06 Main Content
+========================= */
+/* 新闻图片 */
+section.py-5 img {
+    object-fit: cover;
+}
+/* 新闻链接 */
+.list-group-item a {
+    color: #333;
+}
+.list-group-item a:hover {
+    color: var(--school-blue);
+}
+/* =========================
+   07 Campus
+========================= */
+/* 校园卡片 */
+.card {
+    overflow: hidden;
+}
+/* 校园图片 */
+.card-img-top {
+    height: 130px;
+    object-fit: cover;
+}
+/* 校园卡片鼠标悬停 */
+.card {
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15) !important;
+}
+/* =========================
+   08 Footer
+========================= */
+footer {
+    background-color: var(--school-dark-blue) !important;
+}
+footer a:hover {
+    color: white !important;
+}
+/* =========================
+   新闻正文
+========================= */
+.news-content {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: #333;
+}
+.news-content p {
+    margin-bottom: 1.2rem;
+}
+.news-content img {
+    max-width: 100%;
+    height: auto;
+}
+/* =========================
+   手机端
+========================= */
+@media (max-width: 767.98px) {
+    /* 学校名称 */
+    header h1 {
+        font-size: 22px;
+        letter-spacing: 4px;
+    }
+    header p {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    /* Banner */
+    section.position-relative > img {
+        height: 260px !important;
+    }
+    /* Banner 标题 */
+    section.position-relative .display-5 {
+        font-size: 28px;
+    }
+    section.position-relative .lead {
+        font-size: 15px;
+    }
+    /* 快捷功能 */
+    section.py-4 .bg-white {
+        padding: 12px !important;
+    }
+    /* 校园图片 */
+    .card-img-top {
+        height: 160px;
+    }
+}
