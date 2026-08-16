@@ -1,0 +1,694 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 手机端响应式核心设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>可谦学堂</title>
+    <!-- Bootstrap 5 本地 CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- 自己编写的 CSS -->
+    <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+    <!-- =====================================================
+     01 topbar
+===================================================== -->
+    <div class="dark-blue border-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <!-- 左侧文字 -->
+                <div class="fs-4 text-white">
+                    欢迎来到<br>可谦学堂
+                </div>
+                <!-- 手机折叠按钮 -->
+                <button class="btn text-white d-md-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#topBarMenu" aria-controls="topBarMenu" aria-expanded="false">
+                    ☰ 登录注册
+                </button>
+                <!-- 右侧菜单 -->
+                <div class="collapse d-md-flex" id="topBarMenu">
+                    <div class="d-flex align-items-center gap-3 small">
+                        <a href="#" class="text-decoration-none text-white">
+                            教师登录
+                        </a>
+                        <a href="#" class="text-decoration-none text-white">
+                            学生登录
+                        </a>
+                        <a href="#" class="text-decoration-none text-white">
+                            家长登录
+                        </a>
+                        <a href="#" class="btn btn-light btn-sm px-3" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">
+                            注册
+                        </a>
+                        <span class="text-white">
+                            🔍 请输入关键词...
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =====================================================
+     02 header
+===================================================== -->
+    <header class="py-2 bg-white">
+        <div class="container">
+            <!-- 第一行：Logo + 手机折叠按钮 -->
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-5 col-10">
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="可谦学堂Logo" class="img-fluid"
+                            style="max-width: 65px;">
+                        <div class="ms-2">
+                            <h1 class="h3 mb-1">
+                                可谦学堂
+                            </h1>
+                            <p class="mb-0 text-secondary small">
+                                KEQIAN SCHOOL
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 手机端折叠按钮 -->
+                <div class="col-2 d-lg-none text-end">
+                    <nav class="navbar navbar-light p-0 justify-content-end">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#schoolInfo" aria-controls="schoolInfo" aria-expanded="false"
+                            aria-label="切换学校信息">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                </div>
+                <!-- 电脑端学校信息 -->
+                <div class="col-lg-7 d-none d-lg-block">
+                    <div class="row g-3">
+                        <!-- 办学理念 -->
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-2">
+                                    <img src="{% static 'assets/images/header/banxuelinian.png' %}" alt="办学理念"
+                                        style="width:40px;">
+                                </div>
+                                <div>
+                                    <strong class="d-block">
+                                        办学理念
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 校训 -->
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-2">
+                                    <img src="{% static 'assets/images/header/xiaoxun.png' %}" alt="校训"
+                                        style="width:40px;">
+                                </div>
+                                <div>
+                                    <strong class="d-block">
+                                        校训
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 联系我们 -->
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-2">
+                                    <img src="{% static 'assets/images/header/lianxiwomen.png' %}" alt="联系我们"
+                                        style="width:40px;">
+                                </div>
+                                <div>
+                                    <strong class="d-block">
+                                        联系我们
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 留言板 -->
+                        <div class="col-lg-3">
+                            <a href="javascript:void(0);" class="text-decoration-none text-dark" data-bs-toggle="modal"
+                                data-bs-target="#messageModal">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <img src="{% static 'assets/images/header/message.png' %}" alt="留言板"
+                                            style="width:40px;">
+                                    </div>
+                                    <div>
+                                        <strong class="d-block">
+                                            留言板
+                                        </strong>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 手机端折叠内容 -->
+                <div class="col-12">
+                    <div class="collapse d-lg-none" id="schoolInfo">
+                        <div class="row g-3 mt-2">
+                            <!-- 办学理念 -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <img src="{% static 'assets/images/header/banxuelinian.png' %}" alt="办学理念"
+                                            style="width:40px;">
+                                    </div>
+                                    <div>
+                                        <strong class="d-block">
+                                            办学理念
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 校训 -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <img src="{% static 'assets/images/header/xiaoxun.png' %}" alt="校训"
+                                            style="width:40px;">
+                                    </div>
+                                    <div>
+                                        <strong class="d-block">
+                                            校训
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 联系我们 -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <img src="{% static 'assets/images/header/lianxiwomen.png' %}" alt="联系我们"
+                                            style="width:40px;">
+                                    </div>
+                                    <div>
+                                        <strong class="d-block">
+                                            联系我们
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 留言板 -->
+                            <!-- 留言板 -->
+                            <div class="col-12">
+                                <a href="javascript:void(0);" class="text-decoration-none text-dark"
+                                    data-bs-toggle="modal" data-bs-target="#messageModal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <img src="{% static 'assets/images/header/message.png' %}" alt="留言板"
+                                                style="width:40px;">
+                                        </div>
+                                        <div>
+                                            <strong class="d-block">
+                                                留言板
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- =====================================================
+     03 navbar
+===================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <!-- Logo / 移动端导航标题 -->
+            <a class="navbar-brand d-lg-none" href="#">
+                可谦学堂
+            </a>
+            <!-- 手机端按钮 -->
+            <button class="navbar-toggler d-lg-none border border-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="切换顶部菜单">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- 导航 -->
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto w-100">
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="{% url 'school_profile' %}">
+                            学校概况
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="{% url 'news' %}">
+                            新闻中心
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            德育之窗
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            教学科研
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            教师风采
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            学生天地
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            校园生活
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            招生信息
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            下载中心
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            校园相册
+                        </a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#">
+                            联系我们
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- =====================================================
+     04 hero-banner
+===================================================== -->
+    <section class="text-center">
+        <h1 class="mb-1 mt-4">
+            学校概况
+        </h1>
+    </section>
+    <!-- =====================================================
+     05 quick-links
+===================================================== -->
+    <section class="py-4 bg-light">
+    </section>
+    <!-- =====================================================
+     06 main-content
+===================================================== -->
+    <section class="py-5">
+        <div class="container">
+            <article class="bg-white p-5 rounded shadow-sm lh-lg fs-5">
+                <p class="mb-4">
+                    可谦学堂是一所致力于知识传播、能力培养与综合素质提升的现代化学习平台。
+                    学堂秉承“谦学求知，启智未来”的教育理念，关注学生的全面发展，
+                    努力营造积极、开放、充满活力的学习环境。
+                    通过丰富多样的课程体系和创新性的教学方式，
+                    可谦学堂帮助学习者提升学科能力、实践能力以及独立思考能力。
+                </p>
+                <p class="mb-4">
+                    学堂注重传统知识与现代科技的结合，不仅提供基础学科课程，
+                    还积极探索数字化教育、兴趣拓展、创新实践等领域。
+                    教师团队坚持以学生为中心，根据不同年龄阶段和学习需求，
+                    设计个性化的学习方案，鼓励学生主动探索、勇于创新，
+                    在学习过程中培养良好的学习习惯和成长意识。
+                </p>
+                <p class="mb-4">
+                    可谦学堂重视校园文化建设，倡导尊重、合作、责任与进步的价值观。
+                    通过开展丰富的活动、交流与实践项目，
+                    促进学生之间的沟通与合作，培养他们的社会责任感和团队精神。
+                </p>
+                <p>
+                    未来，可谦学堂将继续探索教育发展的新方向，
+                    利用先进技术和优质资源，为更多学习者提供高质量的学习服务，
+                    努力打造一个充满温度、智慧与创造力的学习社区，
+                    让每一位学生都能在这里发现兴趣、提升能力，实现自己的成长目标。
+                </p>
+            </article>
+        </div>
+    </section>
+    <!-- =====================================================
+     08 footer
+===================================================== -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container-fluid px-4">
+            <div class="row justify-content-between">
+                <!-- 学校介绍 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="可谦学堂" style="width:60px;"
+                            class="img-fluid">
+                        <div class="ms-3">
+                            <h4 class="mb-0">
+                                可谦学堂
+                            </h4>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-white-50">
+                        可谦学堂是一所现代化的优质
+                        学校，坚持育人为本，全面发展，
+                        为学生的终身发展奠定坚实基础。
+                    </p>
+                </div>
+                <!-- 快捷导航 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        快捷导航
+                    </h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            学校概况
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            新闻中心
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            德育之窗
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            教学科研
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            教师风采
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            学生天地
+                        </a>
+                    </div>
+                </div>
+                <!-- 资源中心 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        资源中心
+                    </h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            下载中心
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            课程查询
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            常用表格
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            校历查询
+                        </a>
+                    </div>
+                </div>
+                <!-- 游戏中心 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        游戏中心
+                    </h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="javascript:void(0);" class="text-white-50 text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#mapGameModal">
+                            中国地图拼图
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            游戏2
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            游戏3
+                        </a>
+                        <a href="#" class="text-white-50 text-decoration-none">
+                            游戏4
+                        </a>
+                    </div>
+                </div>
+                <!-- 联系方式 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        联系我们
+                    </h5>
+                    <p class="text-white-50">
+                        地址: 山西省长治市<br>
+                        电话: 0355-12345678<br>
+                        邮箱: 544838543@qq.com
+                    </p>
+                </div>
+                <!-- 关注我们 -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        关注我们
+                    </h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <span>💬</span>
+                        <span>🔵</span>
+                        <span>📱</span>
+                    </div>
+                    <p class="mt-2 text-white-50">
+                        扫一扫关注<br>
+                        学校官方公众号
+                    </p>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
+                © 2024 可谦学堂 版权所有
+                粤ICP备12345678号
+                技术支持: OneSchool
+            </div>
+        </div>
+    </footer>
+    <!-- 中国地图拼图游戏窗口 -->
+    <div class="modal fade" id="mapGameModal" tabindex="-1">
+        <div class="modal-dialog   modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <!-- 标题 -->
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        中国地图拼图
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <!-- 游戏区域 -->
+                <div class="modal-body  map-game-bg">
+                    <div id="mapGameArea">
+                        <!-- 以后在这里写游戏代码 -->
+                        <div id="puzzle" class="d-flex justify-content-center gap-2">
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" onclick="startPuzzle()">
+                                开始游戏
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <div class="modal-footer puzzle-area">
+                    <div id="puzzleStack"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5 本地 JS -->
+    <!-- 注册模态框 -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- 标题 -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">
+                        用户注册
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭">
+                    </button>
+                </div>
+                <!-- 注册表单 -->
+                <div class="modal-body">
+                    <!-- 更改为django代码 -->
+                    <form method="post" action="{% url 'register'%}">
+                        {% csrf_token %}
+                        <!-- 用户类型 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                注册身份
+                            </label>
+                            <!-- 更改为django -->
+                            <select class="form-select" name="role" required>
+                                <option value="" selected>请选择注册身份</option>
+                                <option value="student">学生</option>
+                                <option value="parent">家长</option>
+                                <option value="teacher">教师</option>
+                            </select>
+                        </div>
+                        <!-- 用户名 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                用户名
+                            </label>
+                            <input type="text" class="form-control" name="username" placeholder="请输入用户名" required>
+                        </div>
+                        <!-- 手机号 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                手机号码
+                            </label>
+                            <input type="tel" class="form-control" name="phone" placeholder="请输入手机号码" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                邮箱
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">
+                                年龄
+                            </label>
+                            <input type="number" class="form-control" id="age" name="age" placeholder="请输入年龄" min="1"
+                                max="120">
+                        </div>
+                        <!-- 密码 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                设置密码
+                            </label>
+                            <input type="password" class="form-control" name="password1" placeholder="请输入密码" required>
+                        </div>
+                        <!-- 确认密码 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                确认密码
+                            </label>
+                            <input type="password" class="form-control" name="password2" placeholder="请再次输入密码" required>
+                        </div>
+                        <!-- 同意协议 -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" name="agreement" id="agreeRegister"
+                                required>
+                            <label class="form-check-label" for="agreeRegister">
+                                我已阅读并同意注册协议
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- 注册：提交 Django -->
+                            <button type="submit" class="btn btn-primary">
+                                立即注册
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                取消
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- 底部按钮 -->
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5 本地 JS -->
+    <!-- <script src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <!-- 留言板弹窗 -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form method="post" action="{% url 'message_submit' %}">
+                    {% csrf_token %}
+                    <!-- 标题 -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModalLabel">
+                            在线留言
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <!-- 内容 -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">
+                                姓名
+                            </label>
+                            <input type="text" class="form-control" name="name" placeholder="请输入姓名">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                联系方式
+                            </label>
+                            <input type="email" class="form-control" name="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                留言内容
+                            </label>
+                            <textarea class="form-control" name="content" rows="4" placeholder="请输入您的留言" required>
+                            </textarea>
+                        </div>
+                    </div>
+                    <!-- 底部按钮 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            关闭
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            提交留言
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 加载 Bootstrap 5 的 JavaScript 功能文件，让网页中的 Bootstrap 交互组件可以正常工作。 -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- 游戏代码 -->
+    <script>
+        function startPuzzle() {
+            // 获取图片堆放区域
+            let stack = document.getElementById("puzzleStack");
+            // 清空之前的图片
+            stack.innerHTML = "";
+            // 七张图片
+            let images = [
+                "map1.png",
+                "map2.png",
+                "map3.png",
+                "map4.png",
+                "map5.png",
+                "map6.png",
+                "map7.png"
+            ];
+            // 随机打乱图片顺序
+            for (let i = images.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
+            // 循环生成图片
+            images.forEach(function (img, index) {
+                let piece = document.createElement("img");
+                piece.src = "/static/games/images/" + img;
+                piece.className = "puzzle-piece";
+                // 所有图片中心完全重合
+                piece.style.left = "50%";
+                piece.style.top = "50%";
+                // 随机旋转
+                let rotate = Math.random() * 20 - 10;
+                piece.style.transform =
+                    "translate(-50%, -50%) rotate(" + rotate + "deg)";
+                // 随机上下顺序
+                piece.style.zIndex = index;
+                stack.appendChild(piece);
+            });
+        }
+    </script>
+</body>
+</html>

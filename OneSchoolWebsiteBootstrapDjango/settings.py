@@ -15,7 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bo!al-%$@t+i1$3p9+z^ol9pbod_f5xn=)wfs7bj@a&gvpuub='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'navyhaijun.pythonanywhere.com',
+    'localhost',
+    '127.0.0.1',
+]
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,8 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
       # 自己创建的 App
-    'school',
+    'home',
     'accounts',
+    'messageboard',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

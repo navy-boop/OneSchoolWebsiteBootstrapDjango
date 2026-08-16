@@ -68,7 +68,7 @@ header p {
    04 Hero Banner
 ========================= */
 /* Banner 图片 */
-section.position-relative > img {
+section.position-relative>img {
     object-fit: cover;
 }
 /* Banner 标题 */
@@ -145,10 +145,81 @@ footer a:hover {
     max-width: 100%;
     height: auto;
 }
+footer .row {
+    display: flex;
+    justify-content: space-between;
+}
+footer .col-lg-2 {
+    flex: 0 0 16.666%;
+    max-width: 16.666%;
+}
+#puzzle div img {
+    border-radius: 10px;
+    transition: 0.3s;
+}
+#puzzle div img:hover {
+    transform: scale(1.05);
+}
+.map-game-bg {
+    background-image: url("/static/games/images/game-bg.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 650px;
+}
+.puzzle-area {
+    position: relative;
+    height: 260px;
+    width:100%;
+    overflow:hidden;
+    display:block;
+}
+#puzzleStack {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:10;
+}
+/* .puzzle-piece{
+    position:absolute;
+    width:160px;
+    height:160px;
+    max-width:none;
+    object-fit:contain;
+    opacity:1;
+    filter:none;
+    border:2px solid white;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+} */
+.puzzle-piece{
+    position:absolute;
+    width:160px;
+    height:160px;
+    max-width:none;
+    object-fit:contain;
+    transition:all 0.5s ease;
+    cursor:pointer;
+}
 /* =========================
    手机端
 ========================= */
 @media (max-width: 767.98px) {
+    #topBarMenu {
+        width: 100%;
+        margin-top: 15px;
+    }
+    #topBarMenu .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding-bottom: 10px;
+    }
+    .dark-blue .container>.d-flex {
+        flex-wrap: wrap;
+    }
     /* 学校名称 */
     header h1 {
         font-size: 22px;
@@ -159,7 +230,7 @@ footer a:hover {
         letter-spacing: 2px;
     }
     /* Banner */
-    section.position-relative > img {
+    section.position-relative>img {
         height: 260px !important;
     }
     /* Banner 标题 */
@@ -176,5 +247,9 @@ footer a:hover {
     /* 校园图片 */
     .card-img-top {
         height: 160px;
+    }
+    footer .col-lg-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 }

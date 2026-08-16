@@ -46,7 +46,7 @@ def news(request):
     )
     return render(
         request,
-        "school/news.html",
+        "news.html",
         {
             "news_list": news_list
         }
@@ -58,7 +58,7 @@ def news_detail(request, news_id):
     )
     return render(
         request,
-        "school/news_detail.html",
+        "news_detail.html",
         {
             "news": news
         }
