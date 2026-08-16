@@ -6,5 +6,8 @@ urlpatterns = [
     "about-school/",
     views.school_profile,
     name="school_profile"
+    path('information_registration/', 
+         views.personal_information_registration, 
+         name='information_registration'),
 ),
 ]

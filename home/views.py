@@ -8,3 +8,8 @@ def moral_education(request):
     return render(request, "MoralEducation.html")
 def teaching_research(request):
     return render(request, "TeachingResearch.html")
+def personal_information_registration(request):
+    return render(
+        request,
+        'PersonalInformationRegistration.html'
+    )
