@@ -256,4 +256,17 @@ footer .col-lg-2 {
         flex: 0 0 50%;
         max-width: 50%;
     }
+    body {
+        padding-top: 80px;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    p {
+        font-size: 32px;
+    }
+    a {
+        font-size: 30px;
+        padding: 15px 35px;
+    }
 }
