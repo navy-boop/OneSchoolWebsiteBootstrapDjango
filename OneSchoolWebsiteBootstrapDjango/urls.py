@@ -33,6 +33,8 @@ urlpatterns = [
     path("moral_education/", views.moral_education, name="moral_education"),
     path("teaching_research/", views.teaching_research, name="teaching_research"),
     path("", include("home.urls")),
+    path("admin/", admin.site.urls),
+    path("information/", include("information.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
