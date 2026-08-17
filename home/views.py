@@ -13,3 +13,5 @@ def personal_information_registration(request):
         request,
         'PersonalInformationRegistration.html'
     )
+def temp_home(request):
+    return render(request, "temp_home.html")
