@@ -43,9 +43,9 @@
                             data-bs-target="#registerModal">
                             注册
                         </button>
-                        <span class="text-white">
-                            🔍 请输入关键词...
-                        </span>
+                        <form class="d-flex" role="search">
+                            <input class="form-control rounded-pill" type="search" name="q" placeholder="🔍 请输入关键词...">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -63,11 +63,13 @@
                     <div class="d-flex align-items-center">
                         <img src="{% static 'assets/images/logo/logo.png' %}" alt="可谦学堂Logo" class="img-fluid"
                             style="max-width: 65px;">
-                        <div class="ms-2  text-center">
-                            <h1 class="h3 mb-1">
+                        <div class="ms-2 text-center">
+                            <h1 class="h3 mb-1 fw-bold"
+                                style="font-family: 'Microsoft YaHei', '微软雅黑', sans-serif; letter-spacing: 3px; color:#1b4f8a;">
                                 可谦学堂
                             </h1>
-                            <p class="mb-0 text-secondary small fw-semibold letter-spacing">
+                            <p class="mb-0 text-secondary small fw-semibold"
+                                style="font-family: Arial, sans-serif; letter-spacing: 4px;">
                                 KEQIAN SCHOOL
                             </p>
                         </div>
@@ -363,7 +365,7 @@
                 <!-- 校园通知 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📢
@@ -379,7 +381,7 @@
                 <!-- 课程查询 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📋
@@ -395,7 +397,7 @@
                 <!-- 成绩查询 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📊
@@ -411,7 +413,7 @@
                 <!-- 校园地图 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📍
@@ -427,7 +429,7 @@
                 <!-- 在线报名 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📝
@@ -443,7 +445,7 @@
                 <!-- 联系我们 -->
                 <div class="col-6 col-md-4 col-lg">
                     <a href="/temp_home/" class="text-decoration-none text-dark">
-                        <div class="bg-white border rounded p-3 h-100
+                        <div class="bg-primary-subtle border rounded p-3 h-100
                         d-flex align-items-center">
                             <div class="fs-2 me-3">
                                 📞
@@ -743,8 +745,8 @@
             </div>
             <!-- Copyright -->
             <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
-                © 2024 可谦学堂 版权所有
-                粤ICP备12345678号
+                © 2026 可谦学堂 版权所有
+                晋ICP备12345678号
                 技术支持: OneSchool
             </div>
         </div>

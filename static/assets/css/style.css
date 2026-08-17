@@ -83,11 +83,11 @@ section.position-relative>img {
    05 Quick Links
 ========================= */
 /* 快捷功能卡片 */
-section.py-4 .bg-white {
+section.py-4 .bg-primary-subtle {
     transition: all 0.3s ease;
 }
 /* 鼠标悬停 */
-section.py-4 .bg-white:hover {
+section.py-4 .bg-primary-subtle:hover {
     transform: translateY(-4px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
@@ -245,7 +245,7 @@ footer .col-lg-2 {
         font-size: 15px;
     }
     /* 快捷功能 */
-    section.py-4 .bg-white {
+    section.py-4 .bg-primary-subtle {
         padding: 12px !important;
     }
     /* 校园图片 */
@@ -255,18 +255,5 @@ footer .col-lg-2 {
     footer .col-lg-2 {
         flex: 0 0 50%;
         max-width: 50%;
-    }
-    body {
-        padding-top: 80px;
-    }
-    h1 {
-        font-size: 60px;
-    }
-    p {
-        font-size: 32px;
-    }
-    a {
-        font-size: 30px;
-        padding: 15px 35px;
     }
 }
