@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-between align-items-center py-3">
                 <!-- 左侧文字 -->
                 <div class="fs-4 text-white">
-                    欢迎来到可谦学堂
+                    Welcome to Keqian School
                 </div>
                 <!-- 手机折叠按钮 -->
                 <button class="btn text-white d-md-none" type="button" data-bs-toggle="collapse"
@@ -69,7 +69,7 @@
                                 可谦学堂
                             </h1>
                             <p class="mb-0 text-secondary small fw-semibold"
-                                style="font-family: Arial, sans-serif; letter-spacing: 4px;">
+                                style="font-family: Arial, sans-serif; letter-spacing: 1px;">
                                 KEQIAN SCHOOL
                             </p>
                         </div>
@@ -237,12 +237,12 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav mx-auto w-100">
                     <li class="nav-item flex-fill">
-                        <a class="nav-link" href="/temp_home/">
+                        <a class="nav-link" href="#">
                             首页
                         </a>
                     </li>
                     <li class="nav-item flex-fill">
-                        <a class="nav-link" href="{% url 'school_profile' %}">
+                        <a class="nav-link" href="/temp_home/">
                             学校概况
                         </a>
                     </li>
@@ -252,12 +252,12 @@
                         </a>
                     </li>
                     <li class="nav-item flex-fill">
-                        <a class="nav-link" href="/moral_education/">
+                        <a class="nav-link" href="/temp_home/">
                             德育之窗
                         </a>
                     </li>
                     <li class="nav-item flex-fill">
-                        <a class="nav-link" href="{% url 'teaching_research' %}">
+                        <a class="nav-link" href="/temp_home/">
                             教学科研
                         </a>
                     </li>
@@ -633,122 +633,124 @@
         <div class="container-fluid px-4">
             <div class="row justify-content-between">
                 <!-- 学校介绍 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="可谦学堂" style="width:60px;"
-                            class="img-fluid">
-                        <div class="ms-3">
-                            <h4 class="mb-0">
-                                可谦学堂
-                            </h4>
-                        </div>
-                    </div>
-                    <p class="mt-3 text-white-50">
-                        可谦学堂是一所现代化的优质
-                        学校，坚持育人为本，全面发展，
-                        为学生的终身发展奠定坚实基础。
-                    </p>
-                </div>
-                <!-- 快捷导航 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">
-                        快捷导航
-                    </h5>
-                    <div class="d-flex flex-column gap-2">
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            学校概况
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            新闻中心
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            德育之窗
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            教学科研
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            教师风采
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            学生天地
-                        </a>
+                <div class="col-lg-2 col-md-6 mb-4 position-relative" style="top: -25px;"">
+                    <div class=" d-flex flex-row align-items-center justify-content-center">
+                    <img src="{% static 'assets/images/logo/logo.png' %}" alt="可谦学堂" style="width:60px;"
+                        class="img-fluid  mb-2">
+                    <div>
+                        <h4 class="mb-0 fw-bold"
+                            style="letter-spacing: 4px; color: #D6B36A; font-family: 'STKaiti', 'KaiTi', 'Microsoft YaHei', sans-serif;">
+                            可谦学堂
+                        </h4>
                     </div>
                 </div>
-                <!-- 资源中心 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">
-                        资源中心
-                    </h5>
-                    <div class="d-flex flex-column gap-2">
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            下载中心
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            课程查询
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            常用表格
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            校历查询
-                        </a>
-                    </div>
-                </div>
-                <!-- 游戏中心 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">
-                        游戏中心
-                    </h5>
-                    <div class="d-flex flex-column gap-2">
-                        <a href="javascript:void(0);" class="text-white-50 text-decoration-none" data-bs-toggle="modal"
-                            data-bs-target="#mapGameModal">
-                            中国地图拼图
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            游戏2
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            游戏3
-                        </a>
-                        <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                            游戏4
-                        </a>
-                    </div>
-                </div>
-                <!-- 联系方式 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">
-                        联系我们
-                    </h5>
-                    <p class="text-white-50">
-                        山西省长治市<br>
-                        0355-12345678<br>
-                        544838543@qq.com
-                    </p>
-                </div>
-                <!-- 关注我们 -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">
-                        关注我们
-                    </h5>
-                    <div class="d-flex gap-3 fs-4">
-                        <span>💬</span>
-                        <span>🔵</span>
-                        <span>📱</span>
-                    </div>
-                    <p class="mt-2 text-white-50">
-                        扫一扫关注<br>
-                        学校官方公众号
-                    </p>
+                <p class="mt-2 mb-0 text-white-50 text-center">
+                    百世疑团郁心间<br>
+                    十年一意访名山<br>
+                    半生心愿唯一子<br>
+                    有求皆苦空遗憾<br>
+                    陋室蜗居只半间<br>
+                    华发忽忆少年愿<br>
+                    年老常想身后事<br>
+                    建站重温旧时光<br>
+                </p>
+            </div>
+            <!-- 快捷导航 -->
+            <div class="col-lg-2 col-md-6 mb-4 text-center">
+                <h5 class="mb-3">
+                    快捷导航
+                </h5>
+                <div class="d-flex flex-column gap-2">
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        学校概况
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        新闻中心
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        德育之窗
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        教学科研
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        教师风采
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        学生天地
+                    </a>
                 </div>
             </div>
-            <!-- Copyright -->
-            <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
-                © 2026 可谦学堂 版权所有
-                晋ICP备12345678号
-                技术支持: OneSchool
+            <!-- 资源中心 -->
+            <div class="col-lg-2 col-md-6 mb-4 text-center">
+                <h5 class="mb-3">
+                    资源中心
+                </h5>
+                <div class="d-flex flex-column gap-2">
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        下载中心
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        课程查询
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        常用表格
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        校历查询
+                    </a>
+                </div>
             </div>
+            <!-- 游戏中心 -->
+            <div class="col-lg-2 col-md-6 mb-4 text-center">
+                <h5 class="mb-3">
+                    游戏中心
+                </h5>
+                <div class="d-flex flex-column gap-2">
+                    <a href="javascript:void(0);" class="text-white-50 text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#mapGameModal">
+                        中国地图拼图
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        游戏2
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        游戏3
+                    </a>
+                    <a href="/temp_home/" class="text-white-50 text-decoration-none">
+                        游戏4
+                    </a>
+                </div>
+            </div>
+            <!-- 联系方式 -->
+            <div class="col-lg-2 col-md-6 mb-4 text-center">
+                <h5 class="mb-3 ">
+                    联系我们
+                </h5>
+                <div class="text-white-50 text-start">
+                    <p>地址:山西省长治市壶关县</p>
+                    <p>电话:0355-12345678</p>
+                    <p>邮箱:544838543@qq.com</p>
+                </div>
+            </div>
+            <!-- 关注我们 -->
+            <div class="col-lg-2 col-md-6 mb-4 text-center">
+                <h5 class="mb-3">
+                    关注我们
+                </h5>
+                <img src="{% static 'assets/images/ad/WeChatQRcode.png' %}" alt="可谦学堂" style="width:60px;"
+                    class="img-fluid  mb-2">
+                <p class="mt-2 text-white-50">
+                    扫一扫关注
+                </p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
+            © 2026 可谦学堂 版权所有
+            晋ICP备12345678号
+            技术支持: OneSchool
+        </div>
         </div>
     </footer>
     <!-- 中国地图拼图游戏窗口 -->
@@ -799,7 +801,7 @@
                 <!-- 注册表单 -->
                 <div class="modal-body">
                     <!-- 更改为django代码 -->
-                    <form method="post" action="{% url 'register'%}">
+                    <form id="registerForm" method="post" action="{% url 'register'%}">
                         {% csrf_token %}
                         <!-- 用户类型 -->
                         <div class="mb-3">
@@ -807,7 +809,7 @@
                                 注册身份
                             </label>
                             <!-- 更改为django -->
-                            <select class="form-select" name="role" required>
+                            <select class="form-select border-secondary" name="role" required>
                                 <option value="" selected>请选择注册身份</option>
                                 <option value="student">学生</option>
                                 <option value="parent">家长</option>
@@ -816,49 +818,57 @@
                         </div>
                         <!-- 用户名 -->
                         <div class="mb-3">
-                            <label class="form-label">
+                            <label class="form-label ">
                                 用户名
                             </label>
-                            <input type="text" class="form-control" name="username" placeholder="请输入用户名" required>
+                            <input type="text" class="form-control border-secondary" name="username"
+                                placeholder="请输入用户名" required>
+                            <!-- 填错显示错误信息 -->
+                            <div id="usernameError" class="text-danger small mt-1"></div>
                         </div>
                         <!-- 手机号 -->
                         <div class="mb-3">
                             <label class="form-label">
                                 手机号码
                             </label>
-                            <input type="tel" class="form-control" name="phone" placeholder="请输入手机号码" required>
+                            <input type="tel" class="form-control border-secondary" name="phone" placeholder="请输入手机号码"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">
                                 邮箱
                             </label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+                            <input type="email" class="form-control border-secondary" id="email" name="email"
+                                placeholder="请输入邮箱">
                         </div>
                         <div class="mb-3">
                             <label for="age" class="form-label">
                                 年龄
                             </label>
-                            <input type="number" class="form-control" id="age" name="age" placeholder="请输入年龄" min="1"
-                                max="120">
+                            <input type="number" class="form-control border-secondary" id="age" name="age"
+                                placeholder="请输入年龄" min="1" max="120" required>
                         </div>
                         <!-- 密码 -->
                         <div class="mb-3">
                             <label class="form-label">
                                 设置密码
                             </label>
-                            <input type="password" class="form-control" name="password1" placeholder="请输入密码" required>
+                            <input type="password" class="form-control border-secondary" name="password1"
+                                placeholder="请输入密码" required>
                         </div>
                         <!-- 确认密码 -->
                         <div class="mb-3">
                             <label class="form-label">
                                 确认密码
                             </label>
-                            <input type="password" class="form-control" name="password2" placeholder="请再次输入密码" required>
+                            <input type="password" class="form-control border-secondary" name="password2"
+                                placeholder="请再次输入密码" required>
+                            <div id="passwordError" class="text-danger small mt-1"></div>
                         </div>
                         <!-- 同意协议 -->
                         <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" name="agreement" id="agreeRegister"
-                                required>
+                            <input class="form-check-input border-secondary" type="checkbox" name="agreement"
+                                id="agreeRegister" required>
                             <label class="form-check-label" for="agreeRegister">
                                 我已阅读并同意注册协议
                             </label>
@@ -900,19 +910,20 @@
                             <label class="form-label">
                                 姓名
                             </label>
-                            <input type="text" class="form-control" name="name" placeholder="请输入姓名">
+                            <input type="text" class="form-control border-secondary" name="name" placeholder="请输入姓名">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">
                                 联系方式
                             </label>
-                            <input type="email" class="form-control" name="email" placeholder="请输入邮箱">
+                            <input type="email" class="form-control border-secondary" name="email" placeholder="请输入邮箱">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">
                                 留言内容
                             </label>
-                            <textarea class="form-control" name="content" rows="4" placeholder="请输入您的留言" required>
+                            <textarea class="form-control border-secondary" name="content" rows="4"
+                                placeholder="请输入您的留言" required>
                             </textarea>
                         </div>
                     </div>
@@ -970,6 +981,67 @@
                 stack.appendChild(piece);
             });
         }
+    </script>
+    <script>
+        console.log("注册 JavaScript 已加载");
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            console.log("点击了立即注册");
+            // 阻止表单默认提交
+            event.preventDefault();
+            const form = this;
+            const usernameError = document.getElementById("usernameError");
+            const passwordError = document.getElementById("passwordError");
+            // 获取用户名输入框
+            const usernameInput = document.querySelector('input[name="username"]');
+            // 获取两个密码输入框
+            const password1Input = document.querySelector('input[name="password1"]');
+            const password2Input = document.querySelector('input[name="password2"]');
+            // 用户开始修改用户名时，清除用户名错误信息
+            usernameInput.addEventListener("input", function () {
+                usernameError.textContent = "";
+            });
+            // 用户开始修改设置密码时，清除密码错误信息
+            password1Input.addEventListener("input", function () {
+                passwordError.textContent = "";
+            });
+            // 用户开始修改确认密码时，清除密码错误信息
+            password2Input.addEventListener("input", function () {
+                passwordError.textContent = "";
+            });
+            console.log("usernameError:", usernameError);
+            console.log("passwordError:", passwordError);
+            // 清除之前的错误信息
+            usernameError.textContent = "";
+            passwordError.textContent = "";
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(form)
+            })
+                .then(response => {
+                    console.log("服务器状态：", response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("服务器返回：", data);
+                    if (data.success) {
+                        console.log("注册成功");
+                        window.location.href = data.redirect;
+                    } else {
+                        console.log("注册失败，错误信息：", data.errors);
+                        // 用户名错误
+                        if (data.errors && data.errors.username) {
+                            usernameError.textContent = data.errors.username;
+                        }
+                        // 密码错误
+                        if (data.errors && data.errors.password) {
+                            passwordError.textContent = data.errors.password;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("注册请求错误：", error);
+                });
+        });
     </script>
 </body>
 </html>

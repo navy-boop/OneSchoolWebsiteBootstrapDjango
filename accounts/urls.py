@@ -4,4 +4,5 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("news/", views.news, name="news"),
     path("news/<int:news_id>/", views.news_detail, name="news_detail"),
+    path("register-success/", views.register_success, name="register_success"),
 ]

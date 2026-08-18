@@ -5,6 +5,7 @@ from django.db import transaction
 from django.shortcuts import redirect, render
 from .models import UserProfile
 from .models import UserProfile, News
+from django.http import JsonResponse
 def register(request):
     if request.method == "POST":
         role = request.POST.get("role")
@@ -15,100 +16,36 @@ def register(request):
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
         agreement = request.POST.get("agreement")
-        # 检查是否同意协议
+        # 用来保存所有错误
+        errors = {}
+        # 检查是否同意注册协议
         if not agreement:
-            return redirect("index")
-        # 检查两次密码
+            errors["agreement"] = "请先同意注册协议。"
+        # 检查两次密码是否一致
         if password1 != password2:
-            return redirect("index")
-        # 检查用户名是否存在
+            errors["password"] = "两次输入的密码不一致。"
+        # 检查用户名是否已经存在
         if User.objects.filter(username=username).exists():
-            return redirect("index")
+            errors["username"] = "用户名已经存在，请修改用户名。"
+        # 如果存在任何错误，一次性返回所有错误
+        if errors:
+            return JsonResponse({"success": False, "errors": errors})
         # 保存用户
         with transaction.atomic():
-            user = User.objects.create_user(
-                username=username,
-                password=password1
-            )
+            user = User.objects.create_user(username=username, password=password1)
             UserProfile.objects.create(
-                user=user,
-                role=role,
-                email=email,
-                age=age,
-                phone=phone
+                user=user, role=role, email=email, age=age, phone=phone
             )
-        return redirect("index")
-    return redirect("index")
+        # 所有条件都通过，并且用户已经成功保存
+        return JsonResponse({"success": True, "redirect": "/accounts/register-success/"})
+    return JsonResponse({"success": False, "error": "请求方式错误。"})
+# 注册成功页面
+def register_success(request):
+    return render(request, "success.html")
 # 新闻中心
 def news(request):
-    news_list = News.objects.filter(
-        is_published=True
-    )
-    return render(
-        request,
-        "news.html",
-        {
-            "news_list": news_list
-        }
-    )
+    news_list = News.objects.filter(is_published=True)
+    return render(request, "news.html", {"news_list": news_list})
 def news_detail(request, news_id):
-    news = News.objects.get(
-        id=news_id,
-        is_published=True
-    )
-    return render(
-        request,
-        "news_detail.html",
-        {
-            "news": news
-        }
-    )
-# # -----------调试代码----------------------
-# from django.contrib.auth.models import User
-# from django.db import transaction
-# from django.shortcuts import redirect
-# from .models import UserProfile
-# def register(request):
-#     print("========== register 被调用 ==========")
-#     print("请求方式：", request.method)
-#     if request.method == "POST":
-#         print("收到 POST 数据：")
-#         print(request.POST)
-#         role = request.POST.get("role")
-#         username = request.POST.get("username")
-#         phone = request.POST.get("phone")
-#         password1 = request.POST.get("password1")
-#         password2 = request.POST.get("password2")
-#         agreement = request.POST.get("agreement")
-#         print("role =", role)
-#         print("username =", username)
-#         print("phone =", phone)
-#         print("password1 =", password1)
-#         print("password2 =", password2)
-#         print("agreement =", agreement)
-#         # 检查是否同意协议
-#         if not agreement:
-#             print("错误：没有同意协议")
-#             return redirect("index")
-#         # 检查两次密码
-#         if password1 != password2:
-#             print("错误：两次密码不一致")
-#             return redirect("index")
-#         # 检查用户名是否存在
-#         if User.objects.filter(username=username).exists():
-#             print("错误：用户名已经存在")
-#             return redirect("index")
-#         # 保存用户
-#         with transaction.atomic():
-#             user = User.objects.create_user(
-#                 username=username,
-#                 password=password1
-#             )
-#             UserProfile.objects.create(
-#                 user=user,
-#                 role=role,
-#                 phone=phone
-#             )
-#         print("========== 注册成功 ==========")
-#         return redirect("index")
-#     return redirect("index")
+    news = News.objects.get(id=news_id, is_published=True)
+    return render(request, "news_detail.html", {"news": news})
