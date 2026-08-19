@@ -14,7 +14,7 @@
 <body>
     <!-- =====================================================
      01 topbar
-===================================================== -->
+    ===================================================== -->
     <div class="dark-blue border-bottom">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
@@ -53,7 +53,7 @@
     </div>
     <!-- =====================================================
      02 header
-===================================================== -->
+    ===================================================== -->
     <header class="py-2 bg-white">
         <div class="container">
             <!-- 第一行：Logo + 手机折叠按钮 -->
@@ -89,7 +89,8 @@
                 <div class="col-lg-7 d-none d-lg-block">
                     <div class="row g-3">
                         <!-- 办学理念 -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-3" style="cursor: pointer;" data-bs-toggle="modal"
+                            data-bs-target="#admissionModal">
                             <div class="d-flex align-items-center">
                                 <div class="me-2">
                                     <img src="{% static 'assets/images/header/banxuelinian.png' %}" alt="办学理念"
@@ -103,7 +104,8 @@
                             </div>
                         </div>
                         <!-- 校训 -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-3" style="cursor: pointer;" data-bs-toggle="modal"
+                            data-bs-target="#admissionModal">
                             <div class="d-flex align-items-center">
                                 <div class="me-2">
                                     <img src="{% static 'assets/images/header/xiaoxun.png' %}" alt="校训"
@@ -117,7 +119,8 @@
                             </div>
                         </div>
                         <!-- 联系我们 -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-3" style="cursor: pointer;" data-bs-toggle="modal"
+                            data-bs-target="#admissionModal">
                             <div class="d-flex align-items-center">
                                 <div class="me-2">
                                     <img src="{% static 'assets/images/header/lianxiwomen.png' %}" alt="联系我们"
@@ -154,7 +157,8 @@
                     <div class="collapse d-lg-none" id="schoolInfo">
                         <div class="row g-3 mt-2">
                             <!-- 办学理念 -->
-                            <div class="col-12">
+                            <div class="col-12" style="cursor: pointer;" data-bs-toggle="modal"
+                                data-bs-target="#admissionModal">
                                 <div class="d-flex align-items-center">
                                     <div class="me-2">
                                         <img src="{% static 'assets/images/header/banxuelinian.png' %}" alt="办学理念"
@@ -168,7 +172,8 @@
                                 </div>
                             </div>
                             <!-- 校训 -->
-                            <div class="col-12">
+                            <div class="col-12" style="cursor: pointer;" data-bs-toggle="modal"
+                                data-bs-target="#admissionModal">
                                 <div class="d-flex align-items-center">
                                     <div class="me-2">
                                         <img src="{% static 'assets/images/header/xiaoxun.png' %}" alt="校训"
@@ -182,7 +187,8 @@
                                 </div>
                             </div>
                             <!-- 联系我们 -->
-                            <div class="col-12">
+                            <div class="col-12" style="cursor: pointer;" data-bs-toggle="modal"
+                                data-bs-target="#admissionModal">
                                 <div class="d-flex align-items-center">
                                     <div class="me-2">
                                         <img src="{% static 'assets/images/header/lianxiwomen.png' %}" alt="联系我们"
@@ -221,7 +227,7 @@
     </header>
     <!-- =====================================================
      03 navbar
-===================================================== -->
+    ===================================================== -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <!-- Logo / 移动端导航标题 -->
@@ -302,7 +308,7 @@
     </nav>
     <!-- =====================================================
      04 hero-banner
-===================================================== -->
+    ===================================================== -->
     <section>
         <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
             <!-- 轮播图片 -->
@@ -358,7 +364,7 @@
     </section>
     <!-- =====================================================
      05 quick-links
-===================================================== -->
+    ===================================================== -->
     <section class="py-4 bg-light">
         <div class="container">
             <div class="row g-3">
@@ -463,7 +469,7 @@
     </section>
     <!-- =====================================================
      06 main-content
-===================================================== -->
+    ===================================================== -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
@@ -561,14 +567,15 @@
                     <h3 class="border-bottom pb-2 mb-4">
                         招生信息
                     </h3>
-                    <img src="{% static 'assets/images/ad/admission.jpg'%}" alt="招生信息" class="img-fluid rounded w-100">
+                    <img src="{% static 'assets/images/ad/admission.jpg' %}" alt="招生信息" class="img-fluid rounded w-100"
+                        style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#admissionModal">
                 </div>
             </div>
         </div>
     </section>
     <!-- =====================================================
      07 campus-highlights
-===================================================== -->
+    ===================================================== -->
     <section class="py-5 bg-light">
         <div class="container">
             <h3 class="border-bottom pb-2 mb-4">
@@ -628,7 +635,7 @@
     </section>
     <!-- =====================================================
      08 footer
-===================================================== -->
+    ===================================================== -->
     <footer class="bg-dark text-white py-5">
         <div class="container-fluid px-4">
             <div class="row justify-content-between">
@@ -644,14 +651,17 @@
                         </h4>
                     </div>
                 </div>
-                <p class="mt-2 mb-0 text-white-50 text-center">
+                <p class="mt-2 mb-0 text-white-50 text-center"
+                    style="letter-spacing: 4px; color: #D6B36A; font-family: 'STKaiti', 'KaiTi', 'Microsoft YaHei', sans-serif;">
                     百世疑团郁心间<br>
                     十年一意访名山<br>
+                    归来才知空把剑<br>
+                    格调难融自哀怜<br>
                     半生心愿唯一子<br>
-                    有求皆苦空遗憾<br>
+                    有求皆苦终有憾<br>
                     陋室蜗居只半间<br>
-                    华发忽忆少年愿<br>
-                    年老常想身后事<br>
+                    华发梦回少年郎<br>
+                    临老常思身后事<br>
                     建站重温旧时光<br>
                 </p>
             </div>
@@ -712,7 +722,7 @@
                         中国地图拼图
                     </a>
                     <a href="/temp_home/" class="text-white-50 text-decoration-none">
-                        游戏2
+                        可可珠心算
                     </a>
                     <a href="/temp_home/" class="text-white-50 text-decoration-none">
                         游戏3
@@ -724,13 +734,13 @@
             </div>
             <!-- 联系方式 -->
             <div class="col-lg-2 col-md-6 mb-4 text-center">
-                <h5 class="mb-3 ">
+                <h5 class="mb-3">
                     联系我们
                 </h5>
-                <div class="text-white-50 text-start">
-                    <p>山西省长治市壶关县</p>
-                    <p>0355-12345678</p>
-                    <p>544838543@qq.com</p>
+                <div class="text-white-50 d-inline-block text-start">
+                    <p style="line-height: 1.6; margin-bottom: 4px;">山西省长治市壶关县</p>
+                    <p style="line-height: 1.6; margin-bottom: 4px;">0355-12345678</p>
+                    <p style="line-height: 1.6; margin-bottom: 4px;">544838543@qq.com</p>
                 </div>
             </div>
             <!-- 关注我们 -->
@@ -738,7 +748,7 @@
                 <h5 class="mb-3">
                     关注我们
                 </h5>
-                <img src="{% static 'assets/images/ad/WeChatQRcode.png' %}" alt="可谦学堂" style="width:60px;"
+                <img src="{% static 'assets/images/ad/WeChatQRcode2.png' %}" alt="可谦学堂" style="width:100px;"
                     class="img-fluid  mb-2">
                 <p class="mt-2 text-white-50">
                     扫一扫关注
@@ -747,301 +757,14 @@
         </div>
         <!-- Copyright -->
         <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50 small">
-            © 2026 可谦学堂 版权所有
-            晋ICP备12345678号
+            © 2026 可谦学堂 版权所有晋ICP备12345678号<br>
             技术支持: OneSchool
         </div>
         </div>
     </footer>
-    <!-- 中国地图拼图游戏窗口 -->
-    <div class="modal fade" id="mapGameModal" tabindex="-1">
-        <div class="modal-dialog   modal-dialog-centered modal-fullscreen-sm-down">
-            <div class="modal-content">
-                <!-- 标题 -->
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        中国地图拼图
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                    </button>
-                </div>
-                <!-- 游戏区域 -->
-                <div class="modal-body  map-game-bg">
-                    <div id="mapGameArea">
-                        <!-- 以后在这里写游戏代码 -->
-                        <div id="puzzle" class="d-flex justify-content-center gap-2">
-                        </div>
-                        <div class="text-center mt-4">
-                            <button class="btn btn-primary" onclick="startPuzzle()">
-                                开始游戏
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- 底部 -->
-                <div class="modal-footer puzzle-area">
-                    <div id="puzzleStack"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Bootstrap 5 本地 JS -->
-    <!-- 注册模态框 -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- 标题 -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">
-                        用户注册
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭">
-                    </button>
-                </div>
-                <!-- 注册表单 -->
-                <div class="modal-body">
-                    <!-- 更改为django代码 -->
-                    <form id="registerForm" method="post" action="{% url 'register'%}">
-                        {% csrf_token %}
-                        <!-- 用户类型 -->
-                        <div class="mb-3">
-                            <label class="form-label">
-                                注册身份
-                            </label>
-                            <!-- 更改为django -->
-                            <select class="form-select border-secondary" name="role" required>
-                                <option value="" selected>请选择注册身份</option>
-                                <option value="student">学生</option>
-                                <option value="parent">家长</option>
-                                <option value="teacher">教师</option>
-                            </select>
-                        </div>
-                        <!-- 用户名 -->
-                        <div class="mb-3">
-                            <label class="form-label ">
-                                用户名
-                            </label>
-                            <input type="text" class="form-control border-secondary" name="username"
-                                placeholder="请输入用户名" required>
-                            <!-- 填错显示错误信息 -->
-                            <div id="usernameError" class="text-danger small mt-1"></div>
-                        </div>
-                        <!-- 手机号 -->
-                        <div class="mb-3">
-                            <label class="form-label">
-                                手机号码
-                            </label>
-                            <input type="tel" class="form-control border-secondary" name="phone" placeholder="请输入手机号码"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">
-                                邮箱
-                            </label>
-                            <input type="email" class="form-control border-secondary" id="email" name="email"
-                                placeholder="请输入邮箱">
-                        </div>
-                        <div class="mb-3">
-                            <label for="age" class="form-label">
-                                年龄
-                            </label>
-                            <input type="number" class="form-control border-secondary" id="age" name="age"
-                                placeholder="请输入年龄" min="1" max="120" required>
-                        </div>
-                        <!-- 密码 -->
-                        <div class="mb-3">
-                            <label class="form-label">
-                                设置密码
-                            </label>
-                            <input type="password" class="form-control border-secondary" name="password1"
-                                placeholder="请输入密码" required>
-                        </div>
-                        <!-- 确认密码 -->
-                        <div class="mb-3">
-                            <label class="form-label">
-                                确认密码
-                            </label>
-                            <input type="password" class="form-control border-secondary" name="password2"
-                                placeholder="请再次输入密码" required>
-                            <div id="passwordError" class="text-danger small mt-1"></div>
-                        </div>
-                        <!-- 同意协议 -->
-                        <div class="form-check mb-3">
-                            <input class="form-check-input border-secondary" type="checkbox" name="agreement"
-                                id="agreeRegister" required>
-                            <label class="form-check-label" for="agreeRegister">
-                                我已阅读并同意注册协议
-                            </label>
-                        </div>
-                        <div class="modal-footer">
-                            <!-- 注册：提交 Django -->
-                            <button type="submit" class="btn btn-primary">
-                                立即注册
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                取消
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <!-- 底部按钮 -->
-            </div>
-        </div>
-    </div>
-    <!-- Bootstrap 5 本地 JS -->
-    <!-- <script src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
-    <!-- 留言板弹窗 -->
-    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <form method="post" action="{% url 'message_submit' %}">
-                    {% csrf_token %}
-                    <!-- 标题 -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="messageModalLabel">
-                            在线留言
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                        </button>
-                    </div>
-                    <!-- 内容 -->
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">
-                                姓名
-                            </label>
-                            <input type="text" class="form-control border-secondary" name="name" placeholder="请输入姓名">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">
-                                联系方式
-                            </label>
-                            <input type="email" class="form-control border-secondary" name="email" placeholder="请输入邮箱">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">
-                                留言内容
-                            </label>
-                            <textarea class="form-control border-secondary" name="content" rows="4"
-                                placeholder="请输入您的留言" required>
-                            </textarea>
-                        </div>
-                    </div>
-                    <!-- 底部按钮 -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            关闭
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                            提交留言
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- 加载 Bootstrap 5 的 JavaScript 功能文件，让网页中的 Bootstrap 交互组件可以正常工作。 -->
+    <!-- 加载外部文件 -->
+    {% include "components/modals.html" %}
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- 游戏代码 -->
-    <script>
-        function startPuzzle() {
-            // 获取图片堆放区域
-            let stack = document.getElementById("puzzleStack");
-            // 清空之前的图片
-            stack.innerHTML = "";
-            // 七张图片
-            let images = [
-                "map1.png",
-                "map2.png",
-                "map3.png",
-                "map4.png",
-                "map5.png",
-                "map6.png",
-                "map7.png"
-            ];
-            // 随机打乱图片顺序
-            for (let i = images.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [images[i], images[j]] = [images[j], images[i]];
-            }
-            // 循环生成图片
-            images.forEach(function (img, index) {
-                let piece = document.createElement("img");
-                piece.src = "/static/games/images/" + img;
-                piece.className = "puzzle-piece";
-                // 所有图片中心完全重合
-                piece.style.left = "50%";
-                piece.style.top = "50%";
-                // 随机旋转
-                let rotate = Math.random() * 20 - 10;
-                piece.style.transform =
-                    "translate(-50%, -50%) rotate(" + rotate + "deg)";
-                // 随机上下顺序
-                piece.style.zIndex = index;
-                stack.appendChild(piece);
-            });
-        }
-    </script>
-    <script>
-        console.log("注册 JavaScript 已加载");
-        document.getElementById("registerForm").addEventListener("submit", function (event) {
-            console.log("点击了立即注册");
-            // 阻止表单默认提交
-            event.preventDefault();
-            const form = this;
-            const usernameError = document.getElementById("usernameError");
-            const passwordError = document.getElementById("passwordError");
-            // 获取用户名输入框
-            const usernameInput = document.querySelector('input[name="username"]');
-            // 获取两个密码输入框
-            const password1Input = document.querySelector('input[name="password1"]');
-            const password2Input = document.querySelector('input[name="password2"]');
-            // 用户开始修改用户名时，清除用户名错误信息
-            usernameInput.addEventListener("input", function () {
-                usernameError.textContent = "";
-            });
-            // 用户开始修改设置密码时，清除密码错误信息
-            password1Input.addEventListener("input", function () {
-                passwordError.textContent = "";
-            });
-            // 用户开始修改确认密码时，清除密码错误信息
-            password2Input.addEventListener("input", function () {
-                passwordError.textContent = "";
-            });
-            console.log("usernameError:", usernameError);
-            console.log("passwordError:", passwordError);
-            // 清除之前的错误信息
-            usernameError.textContent = "";
-            passwordError.textContent = "";
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(form)
-            })
-                .then(response => {
-                    console.log("服务器状态：", response.status);
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("服务器返回：", data);
-                    if (data.success) {
-                        console.log("注册成功");
-                        window.location.href = data.redirect;
-                    } else {
-                        console.log("注册失败，错误信息：", data.errors);
-                        // 用户名错误
-                        if (data.errors && data.errors.username) {
-                            usernameError.textContent = data.errors.username;
-                        }
-                        // 密码错误
-                        if (data.errors && data.errors.password) {
-                            passwordError.textContent = data.errors.password;
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.error("注册请求错误：", error);
-                });
-        });
-    </script>
+    <script src="{% static 'assets/js/index.js' %}"></script>
 </body>
 </html>

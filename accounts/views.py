@@ -1,11 +1,8 @@
 from django.shortcuts import render
-# Create your views here.
 from django.contrib.auth.models import User
 from django.db import transaction
-from django.shortcuts import redirect, render
-from .models import UserProfile
-from .models import UserProfile, News
 from django.http import JsonResponse
+from .models import UserProfile
 def register(request):
     if request.method == "POST":
         role = request.POST.get("role")
@@ -42,10 +39,10 @@ def register(request):
 # 注册成功页面
 def register_success(request):
     return render(request, "success.html")
-# 新闻中心
-def news(request):
-    news_list = News.objects.filter(is_published=True)
-    return render(request, "news.html", {"news_list": news_list})
-def news_detail(request, news_id):
-    news = News.objects.get(id=news_id, is_published=True)
-    return render(request, "news_detail.html", {"news": news})
+# # 新闻中心
+# def news(request):
+#     news_list = News.objects.filter(is_published=True)
+#     return render(request, "news.html", {"news_list": news_list})
+# def news_detail(request, news_id):
+#     news = News.objects.get(id=news_id, is_published=True)
+#     return render(request, "news_detail.html", {"news": news})

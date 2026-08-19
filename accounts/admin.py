@@ -6,7 +6,7 @@
 from django.contrib import admin
 from django.http import HttpResponse
 from openpyxl import Workbook
-from .models import UserProfile, News
+from .models import UserProfile
 def export_user_profiles(modeladmin, request, queryset):
     # 创建 Excel 工作簿
     workbook = Workbook()
@@ -59,21 +59,3 @@ class UserProfileAdmin(admin.ModelAdmin):
     def get_email(self, obj):
         return obj.user.email
     get_email.short_description = "邮箱"
-@admin.register(News)
-class NewsAdmin(admin.ModelAdmin):
-    list_display = (
-        "title",
-        "category",
-        "publish_date",
-        "is_published",
-    )
-    list_filter = (
-        "category",
-        "is_published",
-        "publish_date",
-    )
-    search_fields = (
-        "title",
-        "summary",
-        "content",
-    )

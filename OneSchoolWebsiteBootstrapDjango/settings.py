@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'accounts',
     'messageboard',
     'information',
+    'news',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -322,7 +322,7 @@
                     </div>
                     <!-- =========================
                      Django 新闻循环
-                ========================== -->
+                    ========================== -->
                     {% for news in news_list %}
                     <div class="border-bottom py-3">
                         <div class="row align-items-center">
@@ -342,16 +342,16 @@
                                     <h5 class="mb-2">
                                         <a href="{% url 'news_detail' news.id %}"
                                             class="text-decoration-none text-dark">
-                                            {{ news.title }}
+                                            {{ news.title }}<!--重点变量-1-->
                                         </a>
                                     </h5>
                                     <small class="text-secondary ms-3 text-nowrap">
-                                        {{ news.publish_date|date:"m-d" }}
+                                        {{ news.publish_date|date:"m-d" }}<!--重点变量-2-->
                                     </small>
                                 </div>
                                 <!-- 摘要 -->
                                 <p class="text-secondary mb-0">
-                                    {{ news.summary }}
+                                    {{ news.summary }}<!--重点变量-3-->
                                 </p>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                     {% endfor %}
                     <!-- =========================
                      分页
-                ========================== -->
+                    ========================== -->
                     <nav class="mt-4">
                         <ul class="pagination justify-content-center">
                             {% if news_list.has_previous %}
@@ -404,7 +404,7 @@
                 </div>
                 <!-- =========================
                  右侧新闻分类
-            ========================== -->
+                ======================== -->
                 <div class="col-lg-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-primary text-white">
@@ -444,13 +444,13 @@
                         </div>
                         <div class="card-body">
                             <p class="mb-2">
-                                📍 广州市天河区可谦路1号
+                                📍 长治市壶关县
                             </p>
                             <p class="mb-2">
-                                📞 020-12345678
+                                📞 0355-12345678
                             </p>
                             <p class="mb-0">
-                                ✉️ info@keqianschool.edu.cn
+                                ✉️ 544838543@qq.com
                             </p>
                         </div>
                     </div>
