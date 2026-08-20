@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 from django.db import transaction
 from django.http import JsonResponse
 from .models import UserProfile
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.conf import settings
+from .models import UserProfile, InviteCode
+
+
 def register(request):
     if request.method == "POST":
         role = request.POST.get("role")
@@ -13,6 +19,17 @@ def register(request):
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
         agreement = request.POST.get("agreement")
+        # ===== 邀请码验证开始 =====
+
+        invite_code = request.POST.get("invite_code")
+
+        if not InviteCode.objects.filter(code=invite_code,).exists():
+
+            return JsonResponse(
+                {"success": False, "error": "邀请码错误，请输入正确的邀请码！"}
+            )
+
+        # ===== 邀请码验证结束 =====
         # 用来保存所有错误
         errors = {}
         # 检查是否同意注册协议
@@ -28,21 +45,38 @@ def register(request):
         if errors:
             return JsonResponse({"success": False, "errors": errors})
         # 保存用户
+
+        # ------------------------------------------------------------------------------------------------------
+
         with transaction.atomic():
+
             user = User.objects.create_user(username=username, password=password1)
+
             UserProfile.objects.create(
                 user=user, role=role, email=email, age=age, phone=phone
             )
-        # 所有条件都通过，并且用户已经成功保存
-        return JsonResponse({"success": True, "redirect": "/accounts/register-success/"})
+
+            
+
+        return JsonResponse({"success": True})
+    # -----------------------------------------------------------------------------------------
+
     return JsonResponse({"success": False, "error": "请求方式错误。"})
+
+
 # 注册成功页面
 def register_success(request):
     return render(request, "success.html")
-# # 新闻中心
-# def news(request):
-#     news_list = News.objects.filter(is_published=True)
-#     return render(request, "news.html", {"news_list": news_list})
-# def news_detail(request, news_id):
-#     news = News.objects.get(id=news_id, is_published=True)
-#     return render(request, "news_detail.html", {"news": news})
+
+
+# 新增 Django 检查接口，与邀请码有关
+from .models import InviteCode
+
+
+def check_invite(request):
+
+    invite_code = request.POST.get("invite_code")
+
+    exists = InviteCode.objects.filter(code=invite_code,).exists()
+
+    return JsonResponse({"valid": exists})

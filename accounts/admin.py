@@ -7,6 +7,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 from openpyxl import Workbook
 from .models import UserProfile
+from .models import InviteCode
 def export_user_profiles(modeladmin, request, queryset):
     # 创建 Excel 工作簿
     workbook = Workbook()
@@ -59,3 +60,8 @@ class UserProfileAdmin(admin.ModelAdmin):
     def get_email(self, obj):
         return obj.user.email
     get_email.short_description = "邮箱"
+
+
+
+
+admin.site.register(InviteCode)

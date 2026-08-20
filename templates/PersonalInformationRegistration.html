@@ -1,24 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>个人信息登记</title>
     <style>
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
             background: #f2f2f2;
             font-family: "Microsoft YaHei", sans-serif;
         }
+
         .title {
             text-align: center;
             font-size: 30px;
             font-weight: bold;
             margin: 40px 0;
         }
+
         .container {
             width: 92%;
             margin: auto;
@@ -26,13 +30,16 @@
             padding: 25px;
             border-radius: 15px;
         }
+
         .item {
             margin-bottom: 25px;
         }
+
         .label {
             font-size: 22px;
             margin-bottom: 10px;
         }
+
         .input-box {
             width: 100%;
             height: 50px;
@@ -41,6 +48,7 @@
             font-size: 18px;
             padding-left: 15px;
         }
+
         textarea {
             width: 100%;
             height: 100px;
@@ -49,6 +57,7 @@
             font-size: 18px;
             padding: 10px;
         }
+
         button {
             width: 100%;
             height: 55px;
@@ -59,6 +68,10 @@
             font-size: 22px;
             margin-top: 10px;
         }
+
+        #informationFields {
+            display: none;
+        }
     </style>
     <style>
         .container {
@@ -67,62 +80,149 @@
             padding-left: 25px;
             padding-right: 25px;
         }
+
         input {
             height: 45px;
             font-size: 18px;
         }
+
         label {
             font-size: 18px;
         }
+
         /* 手机端 */
         @media (max-width: 576px) {
             .container {
                 padding-left: 20px;
                 padding-right: 20px;
             }
+
             input {
                 height: 50px;
                 font-size: 20px;
             }
+
             label {
                 font-size: 20px;
             }
         }
     </style>
 </head>
+
 <body>
     <h1 class="title">个人信息登记</h1>
     <div class="container">
         <form method="post" action="/information/registration/">
             {% csrf_token %}
+
+            <!-- 邀请码 -->
             <div class="item">
-                <div class="label">姓名：</div>
-                <input class="input-box" type="text" name="name">
+                <div class="label">邀请码：</div>
+
+                <input class="input-box" type="text" id="invite_code3" name="invite_code" placeholder="请输入邀请码" />
+
+                <div id="inviteMessage3"></div>
             </div>
-            <div class="item">
-                <div class="label">性别：</div>
-                <input class="input-box" type="text" name="gender">
+            <div id="informationFields">
+                <div class="item">
+                    <div class="label">姓名：</div>
+                    <input class="input-box" type="text" name="name" />
+                </div>
+                <div class="item">
+                    <div class="label">性别：</div>
+                    <input class="input-box" type="text" name="gender" />
+                </div>
+                <div class="item">
+                    <div class="label">年龄：</div>
+                    <input class="input-box" type="number" name="age" />
+                </div>
+                <div class="item">
+                    <div class="label">邮箱：</div>
+                    <input class="input-box" type="email" name="email" />
+                </div>
+                <div class="item">
+                    <div class="label">电话：</div>
+                    <input class="input-box" type="text" name="phone" />
+                </div>
+                <div class="item">
+                    <div class="label">留言：</div>
+                    <textarea name="message"></textarea>
+                </div>
+                <button type="submit">提交</button>
             </div>
-            <div class="item">
-                <div class="label">年龄：</div>
-                <input class="input-box" type="number" name="age">
-            </div>
-            <div class="item">
-                <div class="label">邮箱：</div>
-                <input class="input-box" type="email" name="email">
-            </div>
-            <div class="item">
-                <div class="label">电话：</div>
-                <input class="input-box" type="text" name="phone">
-            </div>
-            <div class="item">
-                <div class="label">留言：</div>
-                <textarea name="message"></textarea>
-            </div>
-            <button type="submit">
-                提交
-            </button>
         </form>
     </div>
+    <!-- 代码区 -->
+
+    <script>
+        let inviteValid3 = false;
+
+        const inviteInput3 = document.getElementById("invite_code3");
+
+        const inviteMessage3 = document.getElementById("inviteMessage3");
+
+        const informationFields = document.getElementById("informationFields");
+
+        inviteInput3.addEventListener("blur", function () {
+            if (inviteInput3.value == "") {
+                return;
+            }
+
+            fetch("{% url 'check_invite' %}", {
+                method: "POST",
+
+                headers: {
+                    "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+                        .value,
+
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+
+                body: "invite_code=" + inviteInput3.value,
+            })
+                .then((response) => response.json())
+
+                .then((data) => {
+                    if (data.valid) {
+                        inviteValid3 = true;
+
+                        inviteMessage3.innerHTML =
+                            '<span style="color:green;font-weight:bold;">邀请码正确 ✓</span>';
+
+                        informationFields.style.display = "block";
+                    } else {
+                        inviteValid3 = false;
+
+                        inviteMessage3.innerHTML =
+                            '<span style="color:red;font-weight:bold;">邀请码错误，请重新输入！</span>';
+
+                        informationFields.style.display = "none";
+
+                        inviteInput3.value = "";
+
+                        inviteInput3.focus();
+                    }
+                });
+        });
+    </script>
+
+    <script>
+        document
+            .querySelectorAll(
+                "#informationFields input, #informationFields textarea",
+            )
+            .forEach(function (element) {
+                element.addEventListener("focus", function (e) {
+                    if (!inviteValid3) {
+                        alert("请先输入正确的邀请码！");
+
+                        inviteInput3.focus();
+
+                        e.target.blur();
+                    }
+                });
+            });
+    </script>
 </body>
+
 </html>

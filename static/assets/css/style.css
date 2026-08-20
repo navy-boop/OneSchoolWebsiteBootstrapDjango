@@ -2,189 +2,189 @@
    全局
 ========================= */
 body {
-    margin: 0;
-    font-family: "Microsoft YaHei", sans-serif;
-    color: #222;
+  margin: 0;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #222;
 }
 .dark-blue {
-    background-color: #06458f;
+  background-color: #06458f;
 }
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 /* =========================
    学校主题颜色
 ========================= */
 :root {
-    --school-blue: #06458f;
-    --school-dark-blue: #03468f;
-    --school-hover-blue: #08366e;
-    --school-yellow: #ffc400;
+  --school-blue: #06458f;
+  --school-dark-blue: #03468f;
+  --school-hover-blue: #08366e;
+  --school-yellow: #ffc400;
 }
 /* =========================
    01 Topbar
 ========================= */
 .bg-light {
-    background-color: #f8f9fa !important;
+  background-color: #f8f9fa !important;
 }
 /* =========================
    02 Header
 ========================= */
 /* 学校名称 */
 header h1 {
-    color: var(--school-blue);
-    letter-spacing: 8px;
+  color: var(--school-blue);
+  letter-spacing: 8px;
 }
 /* 英文名称 */
 header p {
-    letter-spacing: 5px;
+  letter-spacing: 5px;
 }
 .letter-spacing {
-    color: red;
-    letter-spacing: 5px;
+  color: red;
+  letter-spacing: 5px;
 }
 /* =========================
    03 Navbar
 ========================= */
 .navbar.bg-primary {
-    background-color: var(--school-dark-blue) !important;
+  background-color: var(--school-dark-blue) !important;
 }
 .navbar .nav-link {
-    color: white;
-    padding: 15px 12px;
-    font-size: 16px;
+  color: white;
+  padding: 15px 12px;
+  font-size: 16px;
 }
 /* 导航鼠标悬停 */
 .navbar .nav-link:hover {
-    background-color: var(--school-hover-blue);
-    color: white;
+  background-color: var(--school-hover-blue);
+  color: white;
 }
 /* 当前导航 */
 .navbar .nav-link.active {
-    background-color: var(--school-hover-blue);
-    border-bottom: 3px solid var(--school-yellow);
-    color: white;
+  background-color: var(--school-hover-blue);
+  border-bottom: 3px solid var(--school-yellow);
+  color: white;
 }
 /* =========================
    04 Hero Banner
 ========================= */
 /* Banner 图片 */
-section.position-relative>img {
-    object-fit: cover;
+section.position-relative > img {
+  object-fit: cover;
 }
 /* Banner 标题 */
 .hero-title {
-    color: var(--school-blue);
+  color: var(--school-blue);
 }
 /* =========================
    05 Quick Links
 ========================= */
 /* 快捷功能卡片 */
 section.py-4 .bg-primary-subtle {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 /* 鼠标悬停 */
 section.py-4 .bg-primary-subtle:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 /* =========================
    06 Main Content
 ========================= */
 /* 新闻图片 */
 section.py-5 img {
-    object-fit: cover;
+  object-fit: cover;
 }
 /* 新闻链接 */
 .list-group-item a {
-    color: #333;
+  color: #333;
 }
 .list-group-item a:hover {
-    color: var(--school-blue);
+  color: var(--school-blue);
 }
 /* =========================
    07 Campus
 ========================= */
 /* 校园卡片 */
 .card {
-    overflow: hidden;
+  overflow: hidden;
 }
 /* 校园图片 */
 .card-img-top {
-    height: 130px;
-    object-fit: cover;
+  height: 130px;
+  object-fit: cover;
 }
 /* 校园卡片鼠标悬停 */
 .card {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15) !important;
 }
 /* =========================
    08 Footer
 ========================= */
 footer {
-    background-color: var(--school-dark-blue) !important;
+  background-color: var(--school-dark-blue) !important;
 }
 footer a:hover {
-    color: white !important;
+  color: white !important;
 }
 /* =========================
    新闻正文
 ========================= */
 .news-content {
-    font-size: 1.05rem;
-    line-height: 2;
-    color: #333;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #333;
 }
 .news-content p {
-    margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 .news-content img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 footer .row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 footer .col-lg-2 {
-    flex: 0 0 16.666%;
-    max-width: 16.666%;
+  flex: 0 0 16.666%;
+  max-width: 16.666%;
 }
 #puzzle div img {
-    border-radius: 10px;
-    transition: 0.3s;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 #puzzle div img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 .map-game-bg {
-    background-image: url("/static/games/images/game-bg.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 650px;
+  background-image: url("/static/games/images/game-bg.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 650px;
 }
 .puzzle-area {
-    position: relative;
-    height: 260px;
-    width:100%;
-    overflow:hidden;
-    display:block;
+  position: relative;
+  height: 260px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
 }
 #puzzleStack {
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    z-index:10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 /* .puzzle-piece{
     position:absolute;
@@ -198,62 +198,65 @@ footer .col-lg-2 {
     border-radius:8px;
     box-shadow:0 4px 10px rgba(0,0,0,.3);
 } */
-.puzzle-piece{
-    position:absolute;
-    width:160px;
-    height:160px;
-    max-width:none;
-    object-fit:contain;
-    transition:all 0.5s ease;
-    cursor:pointer;
+.puzzle-piece {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  max-width: none;
+  object-fit: contain;
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
+
+
 /* =========================
    手机端
 ========================= */
 @media (max-width: 767.98px) {
-    #topBarMenu {
-        width: 100%;
-        margin-top: 15px;
-    }
-    #topBarMenu .d-flex {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 12px !important;
-        padding-bottom: 10px;
-    }
-    .dark-blue .container>.d-flex {
-        flex-wrap: wrap;
-    }
-    /* 学校名称 */
-    header h1 {
-        font-size: 22px;
-        letter-spacing: 4px;
-    }
-    header p {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-    /* Banner */
-    section.position-relative>img {
-        height: 260px !important;
-    }
-    /* Banner 标题 */
-    section.position-relative .display-5 {
-        font-size: 28px;
-    }
-    section.position-relative .lead {
-        font-size: 15px;
-    }
-    /* 快捷功能 */
-    section.py-4 .bg-primary-subtle {
-        padding: 12px !important;
-    }
-    /* 校园图片 */
-    .card-img-top {
-        height: 160px;
-    }
-    footer .col-lg-2 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+  #topBarMenu {
+    width: 100%;
+    margin-top: 15px;
+  }
+  #topBarMenu .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-bottom: 10px;
+  }
+  .dark-blue .container > .d-flex {
+    flex-wrap: wrap;
+  }
+  /* 学校名称 */
+  header h1 {
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
+  header p {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  /* Banner */
+  section.position-relative > img {
+    height: 260px !important;
+  }
+  /* Banner 标题 */
+  section.position-relative .display-5 {
+    font-size: 28px;
+  }
+  section.position-relative .lead {
+    font-size: 15px;
+  }
+  /* 快捷功能 */
+
+  section.py-4 .bg-primary-subtle {
+    padding: 12px !important;
+  }
+  /* 校园图片 */
+  .card-img-top {
+    height: 160px;
+  }
+  footer .col-lg-2 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }

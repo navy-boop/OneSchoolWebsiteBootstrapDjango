@@ -1,41 +1,5 @@
 // 游戏代码
-function startPuzzle() {
-            // 获取图片堆放区域
-            let stack = document.getElementById("puzzleStack");
-            // 清空之前的图片
-            stack.innerHTML = "";
-            // 七张图片
-            let images = [
-                "map1.png",
-                "map2.png",
-                "map3.png",
-                "map4.png",
-                "map5.png",
-                "map6.png",
-                "map7.png"
-            ];
-            // 随机打乱图片顺序
-            for (let i = images.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [images[i], images[j]] = [images[j], images[i]];
-            }
-            // 循环生成图片
-            images.forEach(function (img, index) {
-                let piece = document.createElement("img");
-                piece.src = "/static/games/images/" + img;
-                piece.className = "puzzle-piece";
-                // 所有图片中心完全重合
-                piece.style.left = "50%";
-                piece.style.top = "50%";
-                // 随机旋转
-                let rotate = Math.random() * 20 - 10;
-                piece.style.transform =
-                    "translate(-50%, -50%) rotate(" + rotate + "deg)";
-                // 随机上下顺序
-                piece.style.zIndex = index;
-                stack.appendChild(piece);
-            });
-        }
+
 // 注册代码
 console.log("注册 JavaScript 已加载");
         document.getElementById("registerForm").addEventListener("submit", function (event) {
