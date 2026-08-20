@@ -23,7 +23,9 @@ def register(request):
 
         invite_code = request.POST.get("invite_code")
 
-        if not InviteCode.objects.filter(code=invite_code,).exists():
+        if not InviteCode.objects.filter(
+            code=invite_code,
+        ).exists():
 
             return JsonResponse(
                 {"success": False, "error": "邀请码错误，请输入正确的邀请码！"}
@@ -56,8 +58,6 @@ def register(request):
                 user=user, role=role, email=email, age=age, phone=phone
             )
 
-            
-
         return JsonResponse({"success": True})
     # -----------------------------------------------------------------------------------------
 
@@ -70,13 +70,22 @@ def register_success(request):
 
 
 # 新增 Django 检查接口，与邀请码有关
-from .models import InviteCode
 
 
 def check_invite(request):
 
     invite_code = request.POST.get("invite_code")
 
-    exists = InviteCode.objects.filter(code=invite_code,).exists()
+    exists = InviteCode.objects.filter(
+        code=invite_code,
+    ).exists()
 
     return JsonResponse({"valid": exists})
+
+
+# ----------------------------------------------------------------------
+
+
+def login_page(request):
+
+    return render(request, "Login_Page.html")

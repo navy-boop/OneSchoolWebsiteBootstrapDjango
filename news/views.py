@@ -1,8 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import News
-def news(request):
-    news_list = News.objects.all()
-    return render(request, "news/news.html", {"news_list": news_list})
-def news_detail(request, news_id):
-    news = News.objects.get(id=news_id)
-    return render(request, "news/news_detail.html", {"news": news})
+from .models import Notice
+
+
+# 新闻中心列表
+def news_list(request):
+
+    news_list = News.objects.all().order_by("-publish_date")
+
+    context = {
+        "news_list": news_list,
+    }
+
+    return render(request, "news/news_list.html", context)
+
+
+# ------------------------------------------------------------------
+
+
+# 新闻详情
+def news_detail(request, id):
+
+    news = get_object_or_404(News, id=id)
+
+    context = {
+        "news": news,
+    }
+
+    return render(request, "news/news_detail.html", context)
+
+
+# ----------------------------------------------------
+
+
+def notice_detail(request, id):
+
+    notice = get_object_or_404(Notice, id=id)
+
+    return render(request, "news/notice_detail.html", {"notice": notice})

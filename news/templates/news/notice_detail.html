@@ -1,0 +1,55 @@
+<!-- ----------------------------------------------------------------------- -->
+{% load static %}
+
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{{ notice.title }}</title>
+
+  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container py-5">
+    <!-- 新闻标题 -->
+    <h1 class="mb-3 text-center">{{ news.title }}</h1>
+
+    <!-- 发布时间 -->
+    <p class="text-center text-secondary">
+      发布时间： {{ notice.publish_date }}
+    </p>
+
+    <hr />
+
+    <!-- 新闻图片 -->
+    {% if news.image %}
+
+    <div class="text-center mb-4">
+      <img src="{{ news.image.url }}" class="img-fluid rounded" alt="{{ news.title }}" />
+    </div>
+
+    {% endif %}
+
+    <!-- 新闻正文 -->
+    <div class="fs-5 lh-lg">{{ notice.content }}</div>
+
+    <hr />
+
+    <!-- 返回新闻中心 -->
+    <div class="text-center mt-4">
+      <a href="{% url 'news' %}" class="btn btn-primary me-2">
+        返回新闻中心
+      </a>
+
+      <a href="/" class="btn btn-outline-secondary"> 🏠 返回主页 </a>
+    </div>
+  </div>
+
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>
