@@ -6,13 +6,9 @@ from .models import Notice
 # 新闻中心列表
 def news_list(request):
 
-    news_list = News.objects.all().order_by("-publish_date")
+    news_list = News.objects.all()
 
-    context = {
-        "news_list": news_list,
-    }
-
-    return render(request, "news/news_list.html", context)
+    return render(request, "news/news_list.html", {"news_list": news_list})
 
 
 # ------------------------------------------------------------------

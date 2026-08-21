@@ -7,7 +7,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 from pathlib import Path
-VALID_INVITE_CODE = "KEQIAN2026"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
@@ -16,6 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bo!al-%$@t+i1$3p9+z^ol9pbod_f5xn=)wfs7bj@a&gvpuub='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
 ALLOWED_HOSTS = [
     'navyhaijun.pythonanywhere.com',
     'localhost',
@@ -35,6 +39,7 @@ INSTALLED_APPS = [
     'messageboard',
     'information',
     'news',
+    'download',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

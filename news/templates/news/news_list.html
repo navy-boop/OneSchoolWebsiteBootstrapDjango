@@ -1,0 +1,175 @@
+{% load static %}
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>新闻中心 - 可谦学堂</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+
+      /* 页面标题 */
+
+      .page-title {
+        color: #333;
+
+        font-weight: 700;
+
+        letter-spacing: 2px;
+      }
+
+      .title-line {
+        width: 60px;
+
+        height: 3px;
+
+        background: #0d6efd;
+
+        margin: 15px auto;
+      }
+
+      /* 新闻卡片 */
+
+      .news-card {
+        background: white;
+
+        border-radius: 15px;
+
+        overflow: hidden;
+
+        border: none;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+        transition: all 0.3s ease;
+      }
+
+      .news-card:hover {
+        transform: translateY(-8px);
+
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* 新闻图片 */
+
+      .news-image {
+        height: 200px;
+
+        width: 100%;
+
+        object-fit: cover;
+      }
+
+      /* 新闻标题 */
+
+      .news-title {
+        color: #333;
+
+        font-size: 20px;
+
+        font-weight: bold;
+
+        text-decoration: none;
+      }
+
+      .news-title:hover {
+        color: #0d6efd;
+      }
+
+      /* 日期 */
+
+      .news-date {
+        font-size: 14px;
+
+        color: #888;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 导航区域（可根据你的主页修改） -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"> 可谦学堂 </a>
+
+        <a href="{% url 'index' %}" class="btn btn-light btn-sm"> 返回首页 </a>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <!-- 标题 -->
+
+      <div class="text-center mb-5">
+        <h1 class="page-title">新闻中心</h1>
+
+        <div class="title-line"></div>
+
+        <p class="text-muted">了解可谦学堂最新资讯</p>
+      </div>
+
+      <!-- 新闻列表 -->
+
+      <div class="row g-4">
+        {% for news in news_list %}
+
+        <div class="col-md-6 col-lg-4">
+          <div class="news-card h-100">
+            {% if news.image %}
+
+            <img
+              src="{{ news.image.url }}"
+              class="news-image"
+              alt="{{ news.title }}"
+            />
+
+            {% endif %}
+
+            <div class="p-4">
+              <a href="{% url 'news_detail' news.id %}" class="news-title">
+                {{ news.title }}
+              </a>
+
+              <p class="news-date mt-3">📅 {{ news.publish_date }}</p>
+
+              <p class="text-secondary">{{ news.content|truncatechars:90 }}</p>
+
+              <a
+                href="{% url 'news_detail' news.id %}"
+                class="btn btn-outline-primary btn-sm"
+              >
+                阅读全文 →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {% empty %}
+
+        <div class="text-center">
+          <p>暂无新闻</p>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

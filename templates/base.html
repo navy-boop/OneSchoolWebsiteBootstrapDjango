@@ -1,24 +1,68 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1">
-<title>
-可谦学堂
-</title>
-<link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
-rel="stylesheet">
-<link href="{% static 'assets/css/style.css' %}"
-rel="stylesheet">
-</head>
-<body>
-<!-- =========================
-     顶部欢迎区域 topbar
-========================= -->
-这里放你原来的：
-<div class="dark-blue border-bottom">
-...
-</div>
-<!-- 来自你的主页第27行-62行 -->
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% block title %} 可谦学堂 {% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css'%}"
+      rel="stylesheet"
+    />
+
+    <!-- 自定义CSS -->
+    <link href="{% static 'assets/css/style.css'%}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======================
+        topbar
+======================= -->
+
+    这里放你的：
+
+    <div class="dark-blue border-bottom">...</div>
+
+    <!-- ======================
+        header
+======================= -->
+
+    这里放你的：
+
+    <header class="py-2 bg-white">...</header>
+
+    <!-- ======================
+        navbar
+======================= -->
+
+    这里放你的：
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">...</nav>
+
+    <!-- ======================
+        页面内容区域
+======================= -->
+
+    {% block content %} {% endblock %}
+
+    <!-- ======================
+        footer
+======================= -->
+
+    <footer class="bg-dark text-white py-5">...</footer>
+
+    <!-- 模态窗口 -->
+
+    {% include "components/modals.html" %}
+
+    <!-- Bootstrap JS -->
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/index.js' %}"></script>
+  </body>
+</html>

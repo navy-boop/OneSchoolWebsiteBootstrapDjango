@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     # 新闻中心
+    
     path("", views.news_list, name="news"),
     # 新闻详情
     path("<int:id>/", views.news_detail, name="news_detail"),
