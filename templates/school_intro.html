@@ -1,0 +1,178 @@
+{% load static %}
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>学校概况 - 可谦学堂</title>
+
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: #f5f3ee; /* 宣纸色 */
+
+        min-height: 100vh;
+
+        font-family: "Microsoft YaHei", sans-serif;
+      }
+
+      /* 顶部学校名称 */
+
+      .school-title {
+        color: #2f3a32; /* 墨绿色 */
+
+        letter-spacing: 6px;
+
+        font-family: "STKaiti", "KaiTi", "Microsoft YaHei", sans-serif;
+      }
+
+      /* 内容卡片 */
+
+      .intro-card {
+        border: none;
+
+        border-radius: 20px;
+
+        background: rgba(255, 255, 255, 0.9);
+
+        box-shadow: 0 8px 25px rgba(60, 60, 60, 0.12);
+      }
+
+      /* 小标题 */
+
+      .section-title {
+        color: #333333; /* 墨黑色 */
+
+        font-weight: bold;
+
+        letter-spacing: 4px;
+
+        position: relative;
+
+        padding-bottom: 15px;
+      }
+
+      /* 标题下面横线 */
+
+      .section-title::after {
+        content: "";
+
+        width: 80px;
+
+        height: 3px;
+
+        background: #71806d; /* 青灰色 */
+
+        position: absolute;
+
+        bottom: 0;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+      }
+
+      /* 诗文 */
+
+      .poem {
+        letter-spacing: 4px;
+
+        color: #444444; /* 深灰墨色 */
+
+        font-size: 25px;
+
+        line-height: 2;
+
+        font-family: "STKaiti", "KaiTi", "Microsoft YaHei", sans-serif;
+      }
+
+      /* Logo */
+
+      .logo {
+        width: 80px;
+      }
+
+      /* 返回按钮 */
+
+      .back-btn {
+        background: #3b5142; /* 墨绿色 */
+
+        color: white;
+
+        border: none;
+
+        border-radius: 20px;
+
+        padding: 8px 25px;
+      }
+
+      .back-btn:hover {
+        background: #26362c;
+
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <!-- 顶部Logo -->
+
+      <div class="text-center mb-4">
+        <img
+          src="{% static 'assets/images/logo/logo.png' %}"
+          class="logo mb-3"
+          alt="可谦学堂"
+        />
+
+        <h1 class="school-title fw-bold">可谦学堂</h1>
+      </div>
+
+      <!-- 内容卡片 -->
+
+      <div class="card intro-card">
+        <div class="card-body p-4 p-md-5">
+          <h3 class="section-title text-center mb-5">缘起</h3>
+
+          <p class="poem text-center mb-0">
+            内外抵牾困心间<br />
+
+            十年仗剑访名山<br />
+
+            满腔热血辟天地<br />
+
+            归来才晓世事难<br />
+
+            穷达有数知天命<br />
+
+            格调难融自哀怜<br />
+
+            半生心愿唯一子<br />
+
+            有求皆苦终有憾<br />
+
+            陋室蜗居只半间<br />
+
+            华发梦回少年郎<br />
+
+            临老常思身后事<br />
+
+            建站重温旧时光<br />
+          </p>
+        </div>
+      </div>
+
+      <!-- 返回首页 -->
+
+      <div class="text-center mt-4">
+        <a href="{% url 'index' %}" class="btn back-btn"> 返回首页 </a>
+      </div>
+    </div>
+  </body>
+</html>

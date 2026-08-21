@@ -38,3 +38,11 @@ def index(request):
             "notice_list": notice_list,
         },
     )
+
+
+
+def school_intro(request):
+    return render(request, "school_intro.html")
+
+def beautiful_animation(request):
+    return render(request, "beautiful_animation.html")

@@ -5,21 +5,120 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>临时页面</title>
+
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         text-align: center;
         padding-top: 100px;
         font-family: "Microsoft YaHei";
-        background-color: #f5f7fa;
+        background: linear-gradient(135deg, #f5f7fa, #dbeafe);
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
       }
+
+      /* 背景漂浮圆点 */
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(13, 110, 253, 0.15);
+        animation: float 8s infinite ease-in-out;
+      }
+
+      .circle:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        left: 10%;
+        top: 20%;
+      }
+
+      .circle:nth-child(2) {
+        width: 80px;
+        height: 80px;
+        right: 15%;
+        top: 30%;
+        animation-delay: 2s;
+      }
+
+      .circle:nth-child(3) {
+        width: 150px;
+        height: 150px;
+        right: 30%;
+        bottom: 10%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-40px);
+        }
+      }
+
       h1 {
         font-size: 50px;
         color: #0d6efd;
+        animation: bounce 1.5s;
+        position: relative;
       }
+
+      /* 标题弹跳 */
+      @keyframes bounce {
+        0% {
+          transform: translateY(-80px);
+          opacity: 0;
+        }
+
+        60% {
+          transform: translateY(20px);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
       p {
         font-size: 24px;
         color: #555;
+
+        /* 打字效果 */
+        width: fit-content;
+        margin: 30px auto;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #0d6efd;
+
+        animation:
+          typing 3s steps(15),
+          cursor 0.6s infinite;
       }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 300px;
+        }
+      }
+
+      @keyframes cursor {
+        50% {
+          border-color: transparent;
+        }
+      }
+
       a {
         display: inline-block;
         margin-top: 40px;
@@ -28,15 +127,43 @@
         color: white;
         text-decoration: none;
         border-radius: 10px;
+
+        animation: pulse 2s infinite;
+        transition: 0.3s;
       }
+
+      /* 按钮呼吸 */
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.5);
+        }
+
+        70% {
+          box-shadow: 0 0 0 20px rgba(13, 110, 253, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+        }
+      }
+
       a:hover {
         background: #084298;
+        transform: scale(1.1);
       }
     </style>
   </head>
+
   <body>
+    <!-- 背景动画元素 -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <h1>欢迎来到可谦学堂</h1>
+
     <p>网站正在建设中……</p>
+
     <a href="/"> 返回首页 </a>
   </body>
 </html>

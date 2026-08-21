@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+
 urlpatterns = [
     path("", views.index, name="index"),
     path("about-school/", views.school_profile, name="school_profile"),
@@ -9,10 +10,6 @@ urlpatterns = [
         name="information_registration",
     ),
     path("temp_home/", views.temp_home, name="temp_home"),
+    path("school-intro/", views.school_intro, name="school_intro"),
+    path("beautiful_animation/", views.beautiful_animation, name="beautiful_animation"),
 ]
-# from django.urls import path
-# from . import views
-# urlpatterns = [
-#     path('', views.home, name='home'),
-#     path('temp_home/', views.temp_home, name='temp_home'),
-# ]
