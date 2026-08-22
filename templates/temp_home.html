@@ -11,14 +11,39 @@
         box-sizing: border-box;
       }
 
+   
+
       body {
         text-align: center;
         padding-top: 100px;
         font-family: "Microsoft YaHei";
-        background: linear-gradient(135deg, #f5f7fa, #dbeafe);
+
+        /* 梦幻天空渐变背景 */
+        background: linear-gradient(135deg, #dff6ff, #bde0fe, #caffbf, #ffd6a5);
+
+        background-size: 400% 400%;
+
+        animation: skyMove 15s ease infinite;
+
         height: 100vh;
         overflow: hidden;
         position: relative;
+      }
+
+      /* 背景缓慢流动 */
+
+      @keyframes skyMove {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       /* 背景漂浮圆点 */
@@ -151,19 +176,182 @@
         background: #084298;
         transform: scale(1.1);
       }
+      /* =========================
+   彩色肥皂泡动画
+========================= */
+
+      .bubbles {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        pointer-events: none;
+        overflow: hidden;
+
+        z-index: 0;
+      }
+
+      .bubbles span {
+        position: absolute;
+
+        bottom: -100px;
+
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50%;
+
+        /* 彩色透明肥皂泡 */
+        background: radial-gradient(
+          circle at 30% 30%,
+          white,
+          rgba(255, 255, 255, 0.2)
+        );
+
+        border: 2px solid rgba(255, 255, 255, 0.8);
+
+        box-shadow:
+          inset -5px -5px 15px rgba(255, 255, 255, 0.4),
+          0 0 20px rgba(255, 255, 255, 0.6);
+
+        animation: bubbleUp 12s linear infinite;
+      }
+
+      /* 不同颜色 */
+      .bubbles span:nth-child(1) {
+        left: 5%;
+        background-color: #ff9ff3;
+        width: 50px;
+        height: 50px;
+        animation-duration: 10s;
+      }
+
+      .bubbles span:nth-child(2) {
+        left: 15%;
+        background-color: #74b9ff;
+        width: 35px;
+        height: 35px;
+        animation-duration: 8s;
+        animation-delay: 2s;
+      }
+
+      .bubbles span:nth-child(3) {
+        left: 28%;
+        background-color: #55efc4;
+        width: 70px;
+        height: 70px;
+        animation-duration: 14s;
+      }
+
+      .bubbles span:nth-child(4) {
+        left: 40%;
+        background-color: #ffeaa7;
+        width: 45px;
+        height: 45px;
+        animation-duration: 9s;
+        animation-delay: 3s;
+      }
+
+      .bubbles span:nth-child(5) {
+        left: 52%;
+        background-color: #fd79a8;
+        width: 60px;
+        height: 60px;
+        animation-duration: 13s;
+      }
+
+      .bubbles span:nth-child(6) {
+        left: 65%;
+        background-color: #a29bfe;
+        width: 30px;
+        height: 30px;
+        animation-duration: 7s;
+      }
+
+      .bubbles span:nth-child(7) {
+        left: 75%;
+        background-color: #00cec9;
+        width: 80px;
+        height: 80px;
+        animation-duration: 15s;
+      }
+
+      .bubbles span:nth-child(8) {
+        left: 85%;
+        background-color: #fab1a0;
+        width: 45px;
+        height: 45px;
+        animation-duration: 11s;
+      }
+
+      .bubbles span:nth-child(9) {
+        left: 92%;
+        background-color: #81ecec;
+        width: 55px;
+        height: 55px;
+        animation-duration: 12s;
+      }
+
+      .bubbles span:nth-child(10) {
+        left: 35%;
+        background-color: #ffeaa7;
+        width: 25px;
+        height: 25px;
+        animation-duration: 6s;
+      }
+
+      /* 泡泡上升动画 */
+
+      @keyframes bubbleUp {
+        0% {
+          transform: translateY(0) translateX(0) scale(1);
+
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        50% {
+          transform: translateY(-50vh) translateX(40px) scale(1.2);
+        }
+
+        100% {
+          transform: translateY(-120vh) translateX(-40px) scale(0.8);
+
+          opacity: 0;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <!-- 彩色肥皂泡动画 -->
+    <div class="bubbles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <!-- 背景动画元素 -->
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
 
-    <h1>欢迎来到可谦学堂</h1>
+    <h1>可谦学堂</h1>
 
     <p>网站正在建设中……</p>
 
-    <a href="/"> 返回首页 </a>
+    <a href="/"> 🏠 返回首页 </a>
   </body>
 </html>

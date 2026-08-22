@@ -4,39 +4,163 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>临时页面</title>
+
     <style>
-      body {
-        text-align: center;
-        padding-top: 100px;
-        font-family: "Microsoft YaHei";
-        background-color: #f5f7fa;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Microsoft YaHei";
+
+        /* 动态渐变背景 */
+        background: linear-gradient(-45deg, #e3f2fd, #bbdefb, #e8f5e9, #fff3e0);
+
+        background-size: 400% 400%;
+        animation: backgroundMove 12s ease infinite;
+        overflow: hidden;
+      }
+
+      /* 背景动画 */
+      @keyframes backgroundMove {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .box {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 60px 80px;
+        border-radius: 25px;
+
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+        text-align: center;
+
+        animation: showBox 1.5s ease;
+      }
+
+      /* 页面出现动画 */
+      @keyframes showBox {
+        from {
+          opacity: 0;
+          transform: translateY(80px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       h1 {
         font-size: 50px;
         color: #0d6efd;
+
+        animation: titleMove 2s ease infinite alternate;
       }
+
+      /* 标题上下浮动 */
+      @keyframes titleMove {
+        from {
+          transform: translateY(0);
+        }
+
+        to {
+          transform: translateY(-12px);
+        }
+      }
+
       p {
+        margin-top: 25px;
+
         font-size: 24px;
         color: #555;
+
+        overflow: hidden;
+        white-space: nowrap;
+
+        border-right: 3px solid #0d6efd;
+
+        width: 0;
+
+        animation:
+          typing 3s steps(12) forwards,
+          cursor 0.6s infinite;
       }
+
+      /* 打字效果 */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 250px;
+        }
+      }
+
+      @keyframes cursor {
+        50% {
+          border-color: transparent;
+        }
+      }
+
       a {
         display: inline-block;
-        margin-top: 40px;
-        padding: 12px 30px;
+
+        margin-top: 45px;
+
+        padding: 14px 35px;
+
         background: #0d6efd;
+
         color: white;
+
         text-decoration: none;
-        border-radius: 10px;
+
+        border-radius: 30px;
+
+        font-size: 18px;
+
+        transition: 0.4s;
+
+        box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
       }
+
       a:hover {
         background: #084298;
+
+        transform: translateY(-8px) scale(1.05);
+
+        box-shadow: 0 15px 30px rgba(13, 110, 253, 0.5);
       }
     </style>
   </head>
+
   <body>
-    <h1>欢迎来到可谦学堂</h1>
-    <p>先注册后登录……</p>
-    <a href="/"> 返回首页 </a>
+    <div class="box">
+      <h1>欢迎来到可谦学堂</h1>
+
+      <p>先注册后登录……</p>
+
+      <a href="/"> 返回首页 </a>
+    </div>
   </body>
 </html>
